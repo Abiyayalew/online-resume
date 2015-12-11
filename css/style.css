@@ -76,7 +76,7 @@ h5 {
 .location-text {
   font-style: italic;
   font-size: 14px;
-  color: #aaa;
+  color: #fff;
   line-height: 16px;
   float: right;
 
@@ -84,7 +84,7 @@ h5 {
 
 p {
   font-size: 14px;
-  color: #333;
+  color: #fff;
   line-height: 21px;
 }
 
@@ -132,9 +132,11 @@ a {
 
 /* TODO: Replace with image later */
 #header {
-  background-color: #556b2f;
+  background: url(../images/background.jpg) 0 0 no-repeat;
   
-  
+}
+#role {
+  color: #fff;
 }
 
 .flex-box {
