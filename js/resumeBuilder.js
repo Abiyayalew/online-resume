@@ -5,17 +5,17 @@ bio = {
   "role"          :  "Web Developer",
   "contacts"      :  
   {
-    "mobile"      :  "702-000-8900",
-    "email"       :  "abiynayaaaa@gmail.com",
-    "github"      :  "abiyayaaaa",
-    "location"    :  "las vegas NV"
+    "mobile"      :  "702-785-8968",
+    "email"       :  "abiynayalew@gmail.com",
+    "github"      :  "abiyayalew",
+    "location"    :  "Las Vegas NV"
   },
   "welcomeMessage" :  "Developer with experience on developing client–server and web-based applications",
-  "skills"         :  ["Languages : C#, VB.NET, ASP.NET, HTML, CSS","Databases:  SQL Server, MS Access",
+  "skills"         :  ["Languages : C#, ASP.NET, HTML, CSS, JavaScripts","Databases:  SQL Server, MS Access",
                       "Tools :      MS Visual Studio 2010,UML" ,"Reporting Designer:  SSRS, Crystal Report",
                       "Software :   Word, Excel, PowerPoint, Access, Outlook, publisher ",
                       "Platforms :  Windows Server 2008; Windows XP, 7, 8  "], 
-  "pic"            :  "images/fry.jpg",
+  "pic"            :  "images/myimage.jpg",
      
   display: function ()
   {
@@ -51,26 +51,19 @@ bio = {
         "%data%", bio.welcomeMessage);
     $("#skillwelcomemsg")
         .append(formattedWelcomemsg);
+    for( i=0;i<2; i++) {
+        $("#skillwelcomemsg")
+            .append(Newline);
+    }
     if (bio.skills.length > 0)
     {
-        $("#skillwelcomemsg")
-            .append(HTMLskillsStart);
-        var formattedSkill = HTMLskills.replace(
-            "%data%", bio.skills[0]);
-        $("#skillwelcomemsg")
+        for (skill in this.skills)
+        {
+            var formattedSkill = HTMLskills.replace(
+            "%data%", this.skills[skill]);
+           $("#skillwelcomemsg")
             .append(formattedSkill);
-        var formattedSkill = HTMLskills.replace(
-            "%data%", bio.skills[1]);
-        $("#skillwelcomemsg")
-            .append(formattedSkill);
-        var formattedSkill = HTMLskills.replace(
-            "%data%", bio.skills[2]);
-        $("#skillwelcomemsg")
-            .append(formattedSkill);
-        var formattedSkill = HTMLskills.replace(
-            "%data%", bio.skills[3]);
-        $("#skillwelcomemsg")
-            .append(formattedSkill);
+        }
     }
   }
 };
@@ -83,7 +76,10 @@ work = {
     "employer"       : "vivacell", 
     "dates"          : "April-2013 - Augest-2014",
     "city"           : "South Sudan",
-    "Description"    : "Correct errors by making appropriate changes and then rechecking the program to ensure that the desired results are produced. Conduct trial runs of programs and software applications to be sure they will produce the desired information and that the instructions are correct. Compile and write documentation of program development and subsequent revisions, inserting comments in the coded instructions so others can understand the program. Write, update, and maintain computer programs or software packages to handle specific jobs, such as tracking billing data, storing or retrieving data, or controlling other equipment."
+    "Description"    : [" Modified and maintained billing report system used for generating reports, allowing managers to make well-informed and timely decisions.",
+                        " Developed and deployed voucher and subscriber dump system to increase efficiency and reduce process time by 40%.",
+                        " Developed and deployed SIM registration system, enabling more accurate estimates of dealer performance and reduce theft."," Managed 10-15 user requests weekly  by creating SQL scripts, index and complex queries to extract different reports."
+                       ]                  
     },
 
     {
@@ -91,40 +87,60 @@ work = {
     "employer"       : "Pharmcutical Fund and Supply Agency", 
     "dates"          : "July-2009 - Feburay-2013",
     "city"           : "Ethiopia",
-    "Description"    : " Supporting end user and maintaining the existing system by conducting deep analysis . Conduct trial runs of programs and software applications to be sure they will produce the desired information and that the instructions are correct. Compile and write documentation of program development and subsequent revisions, inserting comments in the coded instructions so others can understand the program. Write, update, and maintain computer programs or software packages to handle specific jobs, such as tracking billing data, storing or retrieving data, or controlling other equipment"
+    "Description"    : [" Supported, maintained, and added new functionality to existing inventory management system, payroll and human resource system.",
+                        " Developed and implemented transit-follow up system used to manage short expiry of pharmaceutical items resulting in the 10% decrease in cost.",
+                        "Provided training and user support on developed systems for +40 employees."]
     },
+
     {
     "title"          : "Hardware Techincian",
     "employer"       : "Pharmcutical Fund and Supply Agency", 
     "dates"          : "Feburay-2007 - July-2009",
     "city"           : "Ethiopia",
-    "Description"    : "Installing hardware and software system .maintaining or repairing equipment .troubleshooting a variety of computer issues. Setting up computer security measures. Installing, configuring and troubleshooting computer network. Offering technical support on site or via phone or email Performed system, unit, functional and performance testing and reported defects of functionality and output"
+    "Description"    : ["Installed,maintained or repaired hardware and software system troubleshooting.",
+                        "Configured and troubleshot computer network.",
+                        "Offering technical support on site or via phone or email",
+                        "Performed system, unit, functional and performance testing and reported defects of functionality and output."
+                       ]
     }
   ], 
-  display: function ()
-  {
-    for (job in work.jobs)
+    display: function ()
     {
-        $("#workExperience")
+        for (job in this.jobs)
+        {
+            $("#workExperience")
             .append(HTMLworkStart);
-        var formattedTitle = HTMLworkTitle.replace(
-            "%data%", work.jobs[job].employer);
         var formattedEmployer =HTMLworkEmployer.replace(
-            "%data%", work.jobs[job].title);
+            "%data%", this.jobs[job].title);
+            
+        var formattedTitle = HTMLworkTitle.replace(
+            "%data%", this.jobs[job].employer);
+            
         var formattedDate = HTMLworkDates.replace(
-            "%data%", work.jobs[job].dates);
+            "%data%", this.jobs[job].dates);
+            
         var formattedCity = HTMLworkLocation.replace(
-            "%data%", work.jobs[job].city);
-        var formattedDescription =HTMLworkDescription.replace(
-            "%data%", work.jobs[job].Description);
-        var formattedJobs =
+            "%data%", this.jobs[job].city);
+            
+            var formattedJobs =
             formattedEmployer + formattedTitle +
-            formattedDate + formattedCity +
-            formattedDescription;
-        $(".work-entry:last")
+            formattedDate + formattedCity + Newline 
+            $(".work-entry:last")
             .append(formattedJobs);
+            if (this.jobs[job].Description.length > 0)
+            {
+                for (desc in this.jobs[job].Description)
+                    {
+                        var formattedDescription = HTMLworkDescription.replace(
+                        "%data%", this.jobs[job].Description[desc]);
+                        $(".work-entry:last")
+                        .append(formattedDescription);   
+                    }
+            }
+            
+        }
     }
-  }
+  
 
 };
 
@@ -141,7 +157,7 @@ education = {
 
   "onlinecourse" : 
     {
-	"title"      : "HTML,CSS,JavaScript Crush course",
+	"title"      : "Front-End web developer",
 	"school"     :  "Udacity",
 	"dates"      :  "2015",
 	"url"        : "http://www.udacity.com/course/ud804"
@@ -194,22 +210,30 @@ projects = {
 
   "projects" : [
     {
-	"title"          : "Billing Reporting System", 
-	"dates"          : "April-2013 - Augest-2014",
-	"Description"    : "This system used to import different data from different sources, and converted into single data format and processed them and ready for report. The system has more than 150 reports that has be generated by management daily, weekly and monthly base ",
-	"images"         :  ["images/entry.png","images/entry.png"]
+	"title"          : "Online Resume", 
+	"dates"          : "Oct-2015 - Oct-2015",
+	"Description"    : ["Build JSONs for data to be inserted into the resume.",
+                        "Iterate through JSONs and append to the resume using JQUERY.",
+                        "Changed the css to make page responsive and added navbar to link section of resume."
+                       ],
+	"images"         :  []
     },
     {
-	"title"          : "Voucher and Active subscriber Management system", 
-	"dates"          : "September-2013 - December-2013",
-	"Description"    : "This system used to register beginning, received and sold vouchers and SIMs.Import daily activated voucher and subscription data from billing database and  processed them and provided different reports like Dealer and POS performance, discrepancy between sold and activated voucher. ",
-	"images"         :  ["images/loginform.png","images/loginform.png"]
+	"title"          : "Arcade Game Clone", 
+	"dates"          : "Nov-2015 - Nov-2015",
+	"Description"    : ["Clone of the classic game, Frogger.  Udacity provided the art assets and game engine.",
+                        "Coded player, enemies, and other game entities in JavaScript's object-oriented pseudo-classical style.",
+                        "Added different features  to game to make it more interactive to the user."
+                        ],
+	"images"         :  ["images/game.png"]
     },
     {
 	"title"          : "Monthly revenue processing system", 
-	"dates"          : "March-2014 - July-2014",
-	"Description"    : "The system is used to register all revenues collected from each subscriber from different services like voice, sms and data and other vas services. Processed the data and exported monthly information in the form of access table to required department automatically.",
-	"images"         : []
+	"dates"          : "Nov-2015 - Dec-2015",
+	"Description"    : ["Performed optimization to achived PageSpeed score around 95 for mobile and 97 for desktop of on index.html", 
+                        "performed optimization insuring consistant frame rate at 60fps when scrolling pizza.html",
+                        ""],
+    "images"         :  ["images/WebsiteOptimization.png"]                    
     }
   ],
   display: function ()
@@ -226,10 +250,20 @@ projects = {
             "%data%", this.projects[project].dates);
             $(".project-entry:last")
            .append(formattedDate);
+           $(".project-entry:last")
+           .append(Newline);
         var formattedDescription = HTMLprojectDescription.replace(
-            "%data%", this.projects[project].Description);
+            "%data%", this.projects[project].Description[0]);
             $(".project-entry:last")
             .append(formattedDescription);
+        var formattedDescription = HTMLprojectDescription.replace(
+            "%data%", this.projects[project].Description[1]);
+            $(".project-entry:last")
+            .append(formattedDescription);
+        var formattedDescription = HTMLprojectDescription.replace(
+            "%data%", this.projects[project].Description[2]);
+            $(".project-entry:last")
+            .append(formattedDescription);        
         if (this.projects[project].images.length >0)
         {
             for (images in this.projects[project].images)
