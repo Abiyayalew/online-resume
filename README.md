@@ -6,7 +6,7 @@ Required to write clean code and to apply your knowledge of variables, objects, 
 
 ## To run the project
 
-1.  CLICK  this Link  (abiyayalew.github.io\resume)
+1.  CLICK  this Link  (abiyayalew.github.io\online-resume)
           or 
 2. Clone the project 
 3. CLICK the "index.html" file by opening the project folder.
