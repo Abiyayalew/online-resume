@@ -228,7 +228,7 @@ projects = {
 	"images"         :  ["images/game.png"]
     },
     {
-	"title"          : "Monthly revenue processing system", 
+	"title"          : "Web Optimization", 
 	"dates"          : "Nov-2015 - Dec-2015",
 	"Description"    : ["Performed optimization to achived PageSpeed score around 95 for mobile and 97 for desktop of on index.html", 
                         "performed optimization insuring consistant frame rate at 60fps when scrolling pizza.html",
