@@ -8,11 +8,14 @@ bio = {
     "mobile"      :  "702-785-8968",
     "email"       :  "abiynayalew@gmail.com",
     "github"      :  "abiyayalew",
-    "location"    :  "Las Vegas NV"
+    "linkedin"    :  "www.linkedin.com/in/abiyayalew",
+    "location"    :  " Las Vegas NV "
   },
-  "welcomeMessage" :  "Developer with experience on developing client–server and web-based applications",
-  "skills"         :  ["Languages : C#, ASP.NET, HTML, CSS, JavaScripts","Databases:  SQL Server, MS Access",
-                      "Tools :      MS Visual Studio 2010,UML" ,"Reporting Designer:  SSRS, Crystal Report",
+  "welcomeMessage" :  "Front-End developer with experience on developing responsive web application",
+  "skills"         :  ["Languages : C#, ASP.NET, HTML5, CSS3, JavaScripts",
+                      "Framework/Liberary:  jQuery, Ajax, Bootstrap, Foundation, Knockout.js,Gulp",
+                      "Databases:  SQL Server, MS Access",
+                      "Tools :      Chrome Dev tools, Jasmine, MS Visual Studio 2010" ,
                       "Software :   Word, Excel, PowerPoint, Access, Outlook, publisher ",
                       "Platforms :  Windows Server 2008; Windows XP, 7, 8  "], 
   "pic"            :  "images/myimage.jpg",
@@ -39,6 +42,11 @@ bio = {
         "%data%", bio.contacts.github);
     $(".flex-box")
         .append(formattedGithub);
+    var formattedlinkedin= HTMLlinkedin.replace(
+        "%data%", bio.contacts.linkedin);
+    $(".flex-box")
+        .append(formattedlinkedin);
+        
     var formattedLocation = HTMLlocation.replace(
         "%data%", bio.contacts.location);
     $(".flex-box")
@@ -210,20 +218,22 @@ projects = {
 
   "projects" : [
     {
-	"title"          : "Online Resume", 
-	"dates"          : "Oct-2015 - Oct-2015",
-	"Description"    : ["Build JSONs for data to be inserted into the resume.",
-                        "Iterate through JSONs and append to the resume using JQUERY.",
-                        "Changed the css to make page responsive and added navbar to link section of resume."
+	"title"          : "Neighborhood Map ", 
+	"dates"          : "Dec-2015 - Dec-2015",
+	"Description"    : [" Coded to add a full-screen map to page using the Google Maps-API.",
+                        " Coded to add map markers that contain location you are interested in within this neighborhood.",
+                        " Implemented the search bar functionality to search and filter your map markers and list view.",
+                        " Used: HTML5, CSS, JavaScript’s, jQuery, Ajax, Knockout.js, Google Map Api, Bootstrap "
                        ],
-	"images"         :  []
+	"images"         :  ["images/Neighborhoodmap.png"]
     },
     {
 	"title"          : "Arcade Game Clone", 
 	"dates"          : "Nov-2015 - Nov-2015",
 	"Description"    : ["Clone of the classic game, Frogger.  Udacity provided the art assets and game engine.",
                         "Coded player, enemies, and other game entities in JavaScript's object-oriented pseudo-classical style.",
-                        "Added different features  to game to make it more interactive to the user."
+                        "Added different features  to game to make it more interactive to the user.",
+                        "Used: Object-Oriented JavaScript’s, HTML5 Canvas, CSS, jQuery. "
                         ],
 	"images"         :  ["images/game.png"]
     },
@@ -232,7 +242,7 @@ projects = {
 	"dates"          : "Nov-2015 - Dec-2015",
 	"Description"    : ["Performed optimization to achived PageSpeed score around 95 for mobile and 97 for desktop of on index.html", 
                         "performed optimization insuring consistant frame rate at 60fps when scrolling pizza.html",
-                        ""],
+                        ],
     "images"         :  ["images/WebsiteOptimization.png"]                    
     }
   ],
@@ -252,18 +262,18 @@ projects = {
            .append(formattedDate);
            $(".project-entry:last")
            .append(Newline);
-        var formattedDescription = HTMLprojectDescription.replace(
-            "%data%", this.projects[project].Description[0]);
-            $(".project-entry:last")
-            .append(formattedDescription);
-        var formattedDescription = HTMLprojectDescription.replace(
-            "%data%", this.projects[project].Description[1]);
-            $(".project-entry:last")
-            .append(formattedDescription);
-        var formattedDescription = HTMLprojectDescription.replace(
-            "%data%", this.projects[project].Description[2]);
-            $(".project-entry:last")
-            .append(formattedDescription);        
+        
+        if (this.projects[project].Description.length > 0)
+        {
+            for (desc in this.projects[project].Description)
+            {
+                var formattedDescription = HTMLprojectDescription.replace(
+                "%data%", this.projects[project].Description[desc]);
+                $(".project-entry:last")
+                .append(formattedDescription);
+            }
+        }
+
         if (this.projects[project].images.length >0)
         {
             for (images in this.projects[project].images)
@@ -275,6 +285,7 @@ projects = {
             }
         }
     }
+    $("#projects").append(HTMLProjectSpace);
   }
 
 };
